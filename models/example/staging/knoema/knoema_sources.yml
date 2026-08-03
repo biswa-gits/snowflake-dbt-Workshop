@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: PUBLIC_DATA_FREE
+    database: SNOWFLAKE_PUBLIC_DATA_FREE
+    schema: PUBLIC_DATA_FREE
+    tables:
+      - name: FX_RATES_TIMESERIES
+      - name: STOCK_PRICE_TIMESERIES
