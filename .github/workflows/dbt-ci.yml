@@ -1,0 +1,29 @@
+name: dbt CI
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  dbt-build:
+    runs-on: ubuntu-latest
+
+    environment: prod
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dbt
+        run: |
+          pip install dbt-snowflake
+
+      - name: Run dbt build
+        run: |
+          dbt deps
+          dbt build
